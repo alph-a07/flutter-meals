@@ -24,7 +24,7 @@ class _TabsScreenState extends State<TabsScreen> {
     var activePageTitle = 'Pick your Category';
 
     if (_selectedPageIndex == 1) {
-      activePage = const MealsScreen(title: 'Favorites', meals: []);
+      activePage = const MealsScreen(meals: []);
       activePageTitle = 'Your Favorites';
     }
 
