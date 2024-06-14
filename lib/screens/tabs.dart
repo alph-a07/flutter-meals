@@ -16,9 +16,13 @@ class _TabsScreenState extends State<TabsScreen> {
 
   void _toggleMealFavoriteStatus(Meal meal) {
     if (_favoritesMeals.contains(meal)) {
-      _favoritesMeals.remove(meal);
+      setState(() {
+        _favoritesMeals.remove(meal);
+      });
     } else {
-      _favoritesMeals.add(meal);
+      setState(() {
+        _favoritesMeals.add(meal);
+      });
     }
   }
 
@@ -36,7 +40,10 @@ class _TabsScreenState extends State<TabsScreen> {
     var activePageTitle = 'Pick your Category';
 
     if (_selectedPageIndex == 1) {
-      activePage = MealsScreen(onToggleFavorite: _toggleMealFavoriteStatus, meals: []);
+      activePage = MealsScreen(
+        onToggleFavorite: _toggleMealFavoriteStatus,
+        meals: _favoritesMeals,
+      );
       activePageTitle = 'Your Favorites';
     }
 
