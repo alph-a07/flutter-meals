@@ -2,15 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 
 class MealDetails extends StatelessWidget {
-  const MealDetails({required this.meal, super.key});
+  const MealDetails({
+    required this.meal,
+    required this.onToggleFavorite,
+    super.key,
+  });
 
   final Meal meal;
+  final Function(Meal) onToggleFavorite;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.star),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
