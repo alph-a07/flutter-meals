@@ -36,9 +36,19 @@ class MealDetails extends ConsumerWidget {
                 ),
               );
             },
-            icon: isFavorite
-                ? const Icon(Icons.star)
-                : const Icon(Icons.star_outline),
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, animation) {
+                return ScaleTransition(
+                  scale: animation,
+                  child: child,
+                );
+              },
+              child: Icon(
+                isFavorite ? Icons.star : Icons.star_outline,
+                key: ValueKey(isFavorite),
+              ),
+            ),
           ),
         ],
       ),
