@@ -12,11 +12,13 @@ class MealItem extends StatelessWidget {
   final void Function() onSelectMeal;
 
   String get complexityText {
-    return meal.complexity.name[0].toUpperCase() + meal.complexity.name.substring(1);
+    return meal.complexity.name[0].toUpperCase() +
+        meal.complexity.name.substring(1);
   }
 
   String get affordabilityText {
-    return meal.affordability.name[0].toUpperCase() + meal.affordability.name.substring(1);
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
   }
 
   @override
@@ -30,12 +32,15 @@ class MealItem extends StatelessWidget {
         onTap: onSelectMeal,
         child: Stack(
           children: [
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
+            Hero(
+              tag: meal.id,
+              child: FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
+              ),
             ),
             Positioned(
               bottom: 0,
@@ -46,7 +51,8 @@ class MealItem extends StatelessWidget {
                   filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                   child: Container(
                     color: Colors.black54,
-                    padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -66,10 +72,15 @@ class MealItem extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            MealItemTrait(icon: Icons.schedule, label: '${meal.duration} min'),
-                            MealItemTrait(icon: Icons.soup_kitchen_outlined, label: complexityText),
                             MealItemTrait(
-                                icon: Icons.currency_rupee_rounded, label: affordabilityText),
+                                icon: Icons.schedule,
+                                label: '${meal.duration} min'),
+                            MealItemTrait(
+                                icon: Icons.soup_kitchen_outlined,
+                                label: complexityText),
+                            MealItemTrait(
+                                icon: Icons.currency_rupee_rounded,
+                                label: affordabilityText),
                           ],
                         )
                       ],
