@@ -5,14 +5,20 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/meals.dart';
 import 'package:meals_app/widgets/category_grid_item.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({required this.availableMeals, super.key});
 
   final List<Meal> availableMeals;
 
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen> {
   void _selectCategory(BuildContext context, Category category) {
-    final mealsUnderCategory =
-        availableMeals.where(((meal) => meal.categories.contains(category.id))).toList();
+    final mealsUnderCategory = widget.availableMeals
+        .where(((meal) => meal.categories.contains(category.id)))
+        .toList();
 
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => MealsScreen(
