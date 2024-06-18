@@ -41,6 +41,10 @@ To get started with the Flutter Expense Tracker, follow these steps:
 
 ![image](/images/screenshots.png) -->
 
+## 🎓 Credits
+
+This project is based on the Flutter course by Maximilian Schwarzmüller on [Udemy](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/). Huge thanks to Maxx for the excellent tutorials and guidance.
+
 ## 🌟 Contributing
 
 Feel free to submit issues, fork the repository, and send pull requests!
